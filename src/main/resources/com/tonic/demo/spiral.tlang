@@ -1,0 +1,34 @@
+// Draws a rectangle border on canvas between (top, left) and (bottom, right).
+def void drawBorder(int[][] canvas, int top, int left, int bottom, int right) {
+	for(int col: range(left, right)) canvas[top][col] = 1, canvas[bottom][col] = 1;
+	for(int row: range(top+1, bottom-1)) canvas[row][left] = 1, canvas[row][right] = 1;
+}
+
+// Returns a string representing the canvas.
+// Each cell prints "*" if 1, else " ", with one space between cells.
+def string paint(int[][] canvas, int numRows, int numCols) {
+	string output = "";
+	for(int row: range(0, numRows-1)) {
+		for(int col: range(0, numCols-1))
+			output = output + (canvas[row][col] == 1 ? "*" : " ") + (col < numCols-1 ? " " : "");
+        	output = output + "\n";
+	}
+	return output;
+}
+
+// Draws a spiral on a canvas of size numRows×numCols.
+def string spiral(int numRows = 20, int numCols = 30) {
+	int[][] canvas = int2d(numRows, numCols);
+	for(int layer: range(0, 4)) {
+		int offset = 2 * layer;
+		drawBorder(canvas, offset, offset, numRows - 1 - offset, numCols - 1 - offset);
+	}
+	for(int segment: range(1, 5))
+	{
+		int offset = 2 * segment;
+		canvas[offset][offset - 1] = (segment < 5 ? 1 : 0), canvas[offset - 1][offset - 2] = 0;
+	}
+	return paint(canvas, numRows, numCols);
+}
+
+print(spiral(20, 20));

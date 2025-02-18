@@ -1,0 +1,26 @@
+Todo:
+[X] user methods return values
+[X] only copy over the used methods
+[X] implement `for(var : collection)`
+[X] default value support for user method params
+[X] remove var and need for the keyword
+[X] String concatenation
+[X] char escapes & Unicode escapes
+[X] negative numbers
+[X] logical operators (&&, ||)
+[X] modulo (%)
+[X] implement logical NOT operator (!)
+[X] implement <=, and >=
+[X] implement ^, ~, **
+[X] support for multi-dimensional arrays
+[X] implement break and continue for loops
+[X] library setup
+[X] ternary expressions
+[X] all 4 mutations of ++/--
+[X] +=, -=, /=, *= for shorthand assignments
+[X] single instruction if/else with no brackets
+[X] single instruction for-loops/while with no brackets
+[X] ++/-- on array values
+[X] multi var declaration like `int var = 1, var2 = 2;`
+[X] += support for strings
+[X] default args for library methods

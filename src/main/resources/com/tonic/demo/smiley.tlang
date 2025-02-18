@@ -1,0 +1,19 @@
+def void drawSmiley() {
+	int n=20, center=n/2, faceR=center, faceR2=faceR*faceR, th=8,
+		eyeRow=center-3, leftEye=center-3, rightEye=center+3,
+		mRow=center+3, mCol=center, mR=4, mR2=mR*mR, mTh=6;
+	string line = "";
+	for(int r : range(0,n)) {
+		for(int c : range(0,n)) {
+			int dx = c - center, dy = r - center, d2 = dx*dx + dy*dy,
+				mdx = c - mCol, mdy = r - mRow, md2 = mdx*mdx + mdy*mdy;
+			string ch = (d2 > faceR2 - th && d2 < faceR2 + th) ? "*" :
+						((r == eyeRow && (c == leftEye || c == rightEye)) ? "O" :
+						((r > mRow - 1 && md2 > mR2 - mTh && md2 < mR2 + mTh) ? "-" : " "));
+			line = line + ch;
+		}
+		line = line + "\n";
+	}
+	print(line);
+}
+drawSmiley();
